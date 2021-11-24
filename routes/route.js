@@ -8,7 +8,12 @@ router.route('/attendance').post((req, res)=>{
         matricNo : req.body.matricNo
     });
 
-    newAttendance.save();
+    newAttendance.save()
+    .then(data=>{
+        res.json(data)
+    }).catch(error=>{
+        res.json(error)
+    });
 });
 
 router.get('/',(req, res)=>{
